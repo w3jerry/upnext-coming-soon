@@ -1,11 +1,20 @@
 import type { Metadata } from 'next'
-import { Outfit } from 'next/font/google'
+import localFont from 'next/font/local'
 import './globals.css'
 
-const outfit = Outfit({
-  subsets: ['latin'],
-  weight: ['100', '300', '400', '600', '900'],
+const outfit = localFont({
+  src: [
+    {
+      path: '../public/fonts/outfit-latin-wght-normal.woff2',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/outfit-latin-ext-wght-normal.woff2',
+      style: 'normal',
+    },
+  ],
   variable: '--font-outfit',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {

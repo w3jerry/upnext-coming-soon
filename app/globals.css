@@ -10,7 +10,7 @@
   --font:   var(--font-outfit), sans-serif;
 }
 
-html, body { height: 100%; overflow: hidden; cursor: none; }
+html, body { height: 100%; }
 
 body {
   font-family: var(--font);

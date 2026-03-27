@@ -10,7 +10,16 @@ export default function Home() {
     if (initiated.current) return
     initiated.current = true
 
-    // All interactive JS runs after GSAP loads (see Script onLoad below)
+    // Homepage-specific body styles (cursor hidden, no scroll)
+    document.documentElement.style.overflow = 'hidden'
+    document.body.style.overflow = 'hidden'
+    document.body.style.cursor = 'none'
+
+    return () => {
+      document.documentElement.style.overflow = ''
+      document.body.style.overflow = ''
+      document.body.style.cursor = ''
+    }
   }, [])
 
   function initPage() {
