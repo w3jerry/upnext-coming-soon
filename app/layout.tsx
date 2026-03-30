@@ -1,19 +1,10 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
+import { Outfit } from 'next/font/google'
 import './globals.css'
 
-const outfit = localFont({
-  src: [
-    {
-      path: '../public/fonts/outfit-latin-wght-normal.woff2',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/outfit-latin-ext-wght-normal.woff2',
-      style: 'normal',
-    },
-  ],
-  variable: '--font-outfit',
+const outfit = Outfit({
+  subsets: ['latin'],
+  weight: ['100', '300', '400', '600', '900'],
   display: 'swap',
 })
 
@@ -25,7 +16,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={outfit.variable}>{children}</body>
+      <body className={outfit.className}>{children}</body>
     </html>
   )
 }

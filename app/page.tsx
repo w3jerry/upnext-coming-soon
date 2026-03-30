@@ -9,17 +9,6 @@ export default function Home() {
   useEffect(() => {
     if (initiated.current) return
     initiated.current = true
-
-    // Homepage-specific body styles (cursor hidden, no scroll)
-    document.documentElement.style.overflow = 'hidden'
-    document.body.style.overflow = 'hidden'
-    document.body.style.cursor = 'none'
-
-    return () => {
-      document.documentElement.style.overflow = ''
-      document.body.style.overflow = ''
-      document.body.style.cursor = ''
-    }
   }, [])
 
   function initPage() {
@@ -144,7 +133,7 @@ export default function Home() {
   }
 
   return (
-    <>
+    <div className="page-home">
       <div id="cur-dot" />
       <div id="cur-ring" />
       <canvas id="canvas" />
@@ -212,6 +201,6 @@ export default function Home() {
         strategy="afterInteractive"
         onLoad={() => initPage()}
       />
-    </>
+    </div>
   )
 }
